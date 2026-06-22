@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Baeden Vester - About Me</title>
+        <meta
+            name="description"
+            content="About Me"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --bg: #0c0c0a;
+                --bg2: #111110;
+                --scan: rgba(255, 255, 255, 0.018);
+                --border: #333328;
+                --muted: #4a4a3e;
+                --dim: #7a7a64;
+                --body: #c8c8aa;
+                --bright: #e8e8cc;
+                --green: #8db870;
+                --green2: #b8d890;
+                --amber: #d4a850;
+                --red: #c8604c;
+                --font: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+                --max-w: 1100px;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                background: var(--bg);
+                color: var(--body);
+                font-family: var(--font);
+                font-size: 16px;
+                line-height: 1.65;
+                -webkit-font-smoothing: antialiased;
+                background-image: repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    var(--scan) 2px,
+                    var(--scan) 4px
+                );
+                min-height: 100vh;
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: radial-gradient(
+                    ellipse at center,
+                    transparent 60%,
+                    rgba(0, 0, 0, 0.55) 100%
+                );
+                pointer-events: none;
+                z-index: 1000;
+            }
+
+            ::selection {
+                background: var(--green);
+                color: var(--bg);
+            }
+            ::-webkit-scrollbar {
+                width: 4px;
+            }
+            ::-webkit-scrollbar-track {
+                background: var(--bg);
+            }
+            ::-webkit-scrollbar-thumb {
+                background: var(--muted);
+            }
+
+            .container {
+                max-width: var(--max-w);
+                margin: 0 auto;
+                padding: 0 clamp(1.5rem, 5vw, 4rem);
+            }
+
+            /* ── Topbar ─────────────────────────────────────── */
+            .topbar {
+                border-bottom: 1px solid var(--border);
+                background: var(--bg2);
+                position: sticky;
+                top: 0;
+                z-index: 100;
+            }
+
+            .topbar-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 44px;
+                gap: 1rem;
+            }
+
+            .topbar-left {
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                color: var(--dim);
+            }
+
+            .topbar-path {
+                color: var(--green);
+            }
+
+            .topbar-cursor {
+                display: inline-block;
+                width: 8px;
+                height: 18px;
+                background: var(--green);
+                vertical-align: middle;
+                margin-left: 2px;
+                animation: blink 1.1s step-end infinite;
+            }
+
+            .topbar-nav {
+                display: flex;
+                align-items: center;
+                list-style: none;
+            }
+
+            .topbar-nav a {
+                display: block;
+                padding: 0 0.9rem;
+                height: 44px;
+                line-height: 44px;
+                font-size: 18px;
+                color: var(--dim);
+                text-decoration: none;
+                border-left: 1px solid var(--border);
+                transition:
+                    color 0.15s,
+                    background 0.15s;
+                white-space: nowrap;
+                font-family: var(--font);
+            }
+
+            .topbar-nav a:hover {
+                color: var(--green);
+                background: rgba(141, 184, 112, 0.06);
+            }
+
+            .nav-toggle {
+                display: none;
+                background: none;
+                border: none;
+                color: var(--dim);
+                cursor: pointer;
+                font-family: var(--font);
+                font-size: 18px;
+                padding: 0 0.75rem;
+                height: 44px;
+                border-left: 1px solid var(--border);
+            }
+
+            .nav-toggle:hover {
+                color: var(--green);
+            }
+
+            .topbar-nav a.active {
+                color: var(--green);
+                background: rgba(141, 184, 112, 0.06);
+            }
+
+            @media (max-width: 560px) {
+                .nav-toggle {
+                    display: block;
+                }
+                .topbar-nav {
+                    display: none;
+                    position: absolute;
+                    top: 44px;
+                    left: 0;
+                    right: 0;
+                    flex-direction: column;
+                    background: var(--bg2);
+                    border-bottom: 1px solid var(--border);
+                    z-index: 99;
+                }
+                .topbar-nav.open {
+                    display: flex;
+                }
+
+                .topbar-nav a {
+                    border-left: none;
+                    border-bottom: 1px solid var(--border);
+                    padding: 0 1.25rem;
+                }
+            }
+
+            /* ── CLI section blocks ───────────────────────────── */
+            .cli-section {
+                margin: clamp(2.5rem, 5vw, 4rem) 0;
+            }
+
+            .section-divider {
+                border: none;
+                border-top: 1px solid var(--border);
+                margin: 0;
+            }
+
+            .cli-prompt {
+                display: flex;
+                align-items: baseline;
+                gap: 0.5rem;
+                margin-bottom: 0.75rem;
+                flex-wrap: wrap;
+            }
+
+            .cli-output {
+                padding-left: 0;
+                border-left: 2px solid var(--muted);
+                padding-left: 1.25rem;
+                margin-left: 0.15rem;
+            }
+
+            /* ── Hero ────────────────────────────────────────── */
+            #hero {
+                padding: clamp(2rem, 5vw, 3.5rem) 0 0;
+            }
+
+            .prompt-line {
+                display: flex;
+                align-items: baseline;
+                gap: 0.5rem;
+                margin-bottom: 0.35rem;
+                flex-wrap: wrap;
+            }
+
+            .ps1 {
+                color: var(--green);
+                white-space: nowrap;
+                font-size: 18px;
+            }
+            .ps1-host {
+                color: var(--amber);
+            }
+            .ps1-path {
+                color: var(--green2);
+            }
+            .ps1-dollar {
+                color: var(--bright);
+            }
+            .cmd {
+                color: var(--bright);
+                font-size: 18px;
+            }
+            .cmd-arg {
+                color: var(--amber);
+            }
+
+            .output-block {
+                margin: 0.75rem 0 1.5rem 0;
+            }
+
+            .ascii-name {
+                color: var(--green);
+                font-size: clamp(7.5px, 1.6vw, 11.5px);
+                line-height: 1.15;
+                white-space: pre;
+                overflow-x: hidden;
+                margin-bottom: 1.5rem;
+                opacity: 0;
+                animation: fadeIn 0.5s ease forwards 0.2s;
+            }
+
+            .info-table {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 0.2rem 1.25rem;
+                font-size: 15px;
+                margin-bottom: 1rem;
+            }
+
+            .info-key {
+                color: var(--dim);
+                white-space: nowrap;
+            }
+            .info-val {
+                color: var(--bright);
+            }
+            .info-val a {
+                color: var(--green);
+                text-decoration: none;
+            }
+            .info-val a:hover {
+                text-decoration: underline;
+            }
+
+            .hero-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-top: 1.25rem;
+            }
+
+            .btn-term {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.35rem;
+                font-family: var(--font);
+                font-size: 14px;
+                padding: 0.35rem 0.85rem;
+                border: 1px solid var(--border);
+                background: transparent;
+                color: var(--body);
+                text-decoration: none;
+                border-radius: 2px;
+                cursor: pointer;
+                transition: all 0.15s;
+                letter-spacing: 0.03em;
+            }
+
+            .btn-term:hover {
+                border-color: var(--green);
+                color: var(--green);
+                background: rgba(141, 184, 112, 0.06);
+            }
+            .btn-term.primary {
+                border-color: var(--green);
+                color: var(--green);
+            }
+            .btn-term.primary:hover {
+                background: var(--green);
+                color: var(--bg);
+            }
+
+            /* ── About ───────────────────────────────────────── */
+            .about-text p {
+                color: var(--body);
+                margin-bottom: 0.75rem;
+                font-size: 15px;
+                line-height: 1.75;
+            }
+            .about-text p:last-child {
+                margin-bottom: 0;
+            }
+
+            .tag-line {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.4rem;
+                margin-top: 1rem;
+            }
+
+            .tag {
+                font-size: 13px;
+                padding: 0.2rem 0.55rem;
+                border: 1px solid var(--border);
+                border-radius: 2px;
+                color: var(--dim);
+                letter-spacing: 0.05em;
+                transition: all 0.15s;
+            }
+
+            .tag:hover {
+                border-color: var(--amber);
+                color: var(--amber);
+            }
+
+            /* ── Projects ────────────────────────────────────── */
+            .project-entry {
+                margin-bottom: 1.5rem;
+                padding-bottom: 1.5rem;
+                border-bottom: 1px dashed var(--muted);
+            }
+
+            .project-entry:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .proj-header {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 1rem;
+                flex-wrap: wrap;
+                margin-bottom: 0.4rem;
+            }
+
+            .proj-name {
+                color: var(--green2);
+                font-size: 15px;
+                font-weight: 500;
+                text-decoration: none;
+            }
+            .proj-name:hover {
+                color: var(--green);
+                text-decoration: underline;
+            }
+            .proj-lang {
+                font-size: 13px;
+                color: var(--amber);
+                white-space: nowrap;
+            }
+            .proj-desc {
+                font-size: 14.5px;
+                color: var(--body);
+                line-height: 1.65;
+                margin-bottom: 0.5rem;
+            }
+
+            .proj-links {
+                display: flex;
+                gap: 1rem;
+            }
+            .proj-link {
+                font-size: 13px;
+                color: var(--dim);
+                text-decoration: none;
+                letter-spacing: 0.04em;
+                transition: color 0.15s;
+            }
+            .proj-link:hover {
+                color: var(--green);
+            }
+
+            /* ── Statusline ──────────────────────────────────── */
+            .statusline {
+                border-top: 1px solid var(--border);
+                background: var(--bg2);
+                position: sticky;
+                bottom: 0;
+            }
+
+            .statusline-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 26px;
+                font-size: 13px;
+                overflow: hidden;
+            }
+
+            .sl-left,
+            .sl-right {
+                display: flex;
+                align-items: center;
+            }
+
+            .sl-item {
+                padding: 0 0.65rem;
+                height: 26px;
+                line-height: 26px;
+                border-right: 1px solid var(--border);
+                color: var(--dim);
+                white-space: nowrap;
+            }
+
+            .sl-item:first-child {
+                border-left: 1px solid var(--border);
+            }
+            .sl-item.accent {
+                background: var(--green);
+                color: var(--bg);
+                font-weight: 500;
+                border-color: var(--green);
+            }
+            .sl-item.amber {
+                color: var(--amber);
+            }
+
+            /* ── Animations ──────────────────────────────────── */
+            @keyframes blink {
+                0%,
+                100% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0;
+                }
+            }
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .reveal {
+                opacity: 0;
+                transform: translateY(10px);
+                transition:
+                    opacity 0.45s ease,
+                    transform 0.45s ease;
+            }
+
+            .reveal.visible {
+                opacity: 1;
+                transform: none;
+            }
+
+            .type-cursor::after {
+                content: "▋";
+                color: var(--green);
+                animation: blink 1.1s step-end infinite;
+                margin-left: 2px;
+            }
+
+            .comment {
+                color: var(--muted);
+                font-style: italic;
+                font-size: 14px;
+            }
+            .hl-green {
+                color: var(--green);
+            }
+            .hl-amber {
+                color: var(--amber);
+            }
+            .hl-dim {
+                color: var(--dim);
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="topbar">
+            <div class="container">
+                <div class="topbar-inner">
+                    <div class="topbar-left">
+                        <span class="hl-dim">~/</span
+                        ><span class="topbar-path"><a href="index.html" class="topbar-path">baeden-vester</a></span>
+                        <span class="topbar-cursor"></span>
+                    </div>
+                    <button
+                        class="nav-toggle"
+                        onclick="
+                            document
+                                .querySelector('.topbar-nav')
+                                .classList.toggle('open')
+                        "
+                    >
+                        [menu]
+                    </button>
+                    <ul class="topbar-nav">
+                        <li><a href="#about" class="active">about</a></li>
+                        <!--<li><a href="blog.html">blog</a></li>-->
+                        <li><a href="projects.html">projects</a></li>
+                        <li><a href="resume.pdf">resume.pdf</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <div class="container">
+                <!-- Hero -->
+                <section id="hero">
+                    <div class="prompt-line">
+                        <span class="ps1"
+                            ><span class="ps1-host">baeden</span
+                            ><span class="hl-dim">@</span
+                            ><span class="ps1-host">site</span
+                            ><span class="hl-dim">:</span
+                            ><span class="ps1-path">~</span
+                            ><span class="ps1-dollar"> $</span></span
+                        >
+                        <span class="cmd"
+                            >cat <span class="cmd-arg">whoami.txt</span></span
+                        >
+                    </div>
+
+                    <div class="output-block">
+                        <pre class="ascii-name">
+██████╗  █████╗ ███████╗██████╗ ███████╗███╗   ██╗    ██╗   ██╗███████╗███████╗████████╗███████╗██████╗
+██╔══██╗██╔══██╗██╔════╝██╔══██╗██╔════╝████╗  ██║    ██║   ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔══██╗
+██████╔╝███████║█████╗  ██║  ██║█████╗  ██╔██╗ ██║    ██║   ██║█████╗  ███████╗   ██║   █████╗  ██████╔╝
+██╔══██╗██╔══██║██╔══╝  ██║  ██║██╔══╝  ██║╚██╗██║    ╚██╗ ██╔╝██╔══╝  ╚════██║   ██║   ██╔══╝  ██╔══██╗
+██████╔╝██║  ██║███████╗██████╔╝███████╗██║ ╚████║     ╚████╔╝ ███████╗███████║   ██║   ███████╗██║  ██║
+╚═════╝ ╚═╝  ╚═╝╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═══╝      ╚═══╝  ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
+
+</pre
+                        >
+
+                        <div class="info-table">
+                            <span class="info-key">name</span>
+                            <span class="info-val">Baeden Vester</span>
+                            <span class="info-key">role</span>
+                            <span class="info-val"
+                                >Master's in Computer Science Student
+                                <span class="hl-dim">@</span>
+                                <a href="#">NC State University</a><br />
+                                Product Developer
+                                <span class="hl-dim">@</span>
+                                <a href="#">CircuitSays</a></span
+                            <span class="info-key">focus</span>
+                            <span class="info-val"
+                                >
+                            </span>
+                            <span class="info-key">status</span>
+                            <span class="info-val"
+                                ><span class="hl-green">●</span> open to full-time SWE
+                                roles</span
+                            >
+                            <span class="info-key">location</span>
+                            <span class="info-val">Raleigh, NC</span>
+                        </div>
+
+                        <div class="hero-links">
+                            <a href="resume.pdf" class="btn-term primary"
+                                >↓ resume.pdf</a
+                            >
+                            <a
+                                href="https://github.com/lil-cosine"
+                                target="_blank"
+                                rel="noopener"
+                                class="btn-term"
+                                >github</a
+                            >
+                            <a
+                                href="https://linkedin.com/in/baeden-vester"
+                                target="_blank"
+                                rel="noopener"
+                                class="btn-term"
+                                >linkedin</a
+                            >
+                            <a
+                                href="mailto:jbvester@ncsu.edu"
+                                class="btn-term"
+                                >email</a
+                            >
+                        </div>
+                    </div>
+
+                    <!--<div class="prompt-line">
+                        <span class="ps1"
+                            ><span class="ps1-host">alex</span
+                            ><span class="hl-dim">@</span
+                            ><span class="ps1-host">site</span
+                            ><span class="hl-dim">:</span
+                            ><span class="ps1-path">~</span
+                            ><span class="ps1-dollar"> $</span></span
+                        >
+                        <span class="cmd type-cursor"></span>
+                    </div>-->
+                </section>
+
+                <hr class="section-divider" />
+
+                <!-- About -->
+                <section id="about">
+                    <div class="cli-section reveal">
+                        <div class="cli-prompt">
+                            <span class="ps1"
+                                ><span class="ps1-host">baeden</span
+                                ><span class="hl-dim">@</span
+                                ><span class="ps1-host">site</span
+                                ><span class="hl-dim">:</span
+                                ><span class="ps1-path">~</span
+                                ><span class="ps1-dollar"> $</span></span
+                            >
+                            <span class="cmd"
+                                >cat
+                                <span class="cmd-arg">aboutme.txt</span></span
+                            >
+                        </div>
+                        <div class="cli-output">
+                            <div class="about-text">
+                                <p>
+                                    <span class="comment"
+                                        ># third-semester MCS student</span
+                                    ><br />
+                                    I'm styding CS at NC State University taking coursework focusing on robotics and human-computer interaction. My research work focuses on using AI/ML to control drones, specifically using multiple drones to collaboratively complete tasks such as collect crabs.
+                                </p>
+                                <p>
+                                    I am also a product developer at CircuitSays where I work with clients to create kits to teach circuit fundamentals. Most recently I led the development of a React-based web app to server as a companion for our physical electronics kits in order to improve user enagement and product usability.
+                                </p>
+                                <p>
+                                    When I'm not coding or debugging IsaacSim, I'm:
+                                    <span class="hl-dim">[</span
+                                    ><span class="hl-green">tinkering with my homelab</span
+                                    ><span class="hl-dim">]</span>
+                                    <span class="hl-dim">[</span
+                                    ><span class="hl-green">reading</span
+                                    ><span class="hl-dim">]</span>
+                                    <span class="hl-dim">[</span
+                                    ><span class="hl-green"
+                                        >checking out other people's projects</span
+                                    ><span class="hl-dim">]</span>
+                                </p>
+                                <div class="tag-line">
+                                    <span class="tag">robotics</span>
+                                    <span class="tag">ai</span>
+                                    <span class="tag">multi-robot collaboration</span>
+                                    <span class="tag">python</span>
+                                    <span class="tag">rust</span>
+                                    <span class="tag">linux</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="section-divider" />
+
+                <!-- Projects -->
+                <section id="projects">
+                    <div class="cli-section reveal">
+                        <div class="cli-prompt">
+                            <span class="ps1"
+                                ><span class="ps1-host">baeden</span
+                                ><span class="hl-dim">@</span
+                                ><span class="ps1-host">site</span
+                                ><span class="hl-dim">:</span
+                                ><span class="ps1-path">~</span
+                                ><span class="ps1-dollar"> $</span></span
+                            >
+                            <span class="cmd"
+                                >ls <span class="cmd-arg">-la</span>
+                                <span class="cmd-arg">~/projects/</span>
+                                <span class="comment"
+                                    >| grep -v "^\."</span
+                                ></span
+                            >
+                        </div>
+                        <div class="cli-output">
+                            <!-- ls-style header -->
+                            <p
+                                style="
+                                    font-size: 15px;
+                                    color: var(--dim);
+                                    margin-bottom: 0.85rem;
+                                "
+                            >
+                                total 3
+                                <span class="comment"
+                                    >// sorted by recency</span
+                                >
+                            </p>
+
+                            <div class="project-entry">
+                                <div class="proj-header">
+                                    <a
+                                        href="https://github.com/lil-cosine/Multi-Drone-Control"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="proj-name"
+                                    >
+                                        <span class="hl-dim">drwxr-xr-x</span>
+                                        <span
+                                            class="hl-amber"
+                                            style="margin: 0 0.75rem"
+                                            >Python</span
+                                        >
+                                        Multi-Drone_Control<span class="hl-dim">/</span>
+                                    </a>
+                                </div>
+                                <p class="proj-desc">
+                                    A template for programatic control of multiple drones through Isaac Sim. It supports both drone control through Mavlink commands over PX4 and QGroundControl as well as direct commands to the individual motors. This project also supports the addition of other robots controlled by policies trained through Isaac Lab.
+                                </p>
+                                <div class="proj-links">
+                                    <a href="https://github.com/lil-cosine/Multi-Drone-Control" class="proj-link">[github]</a>
+                                    <!--<a href="#" class="proj-link">[writeup]</a>-->
+                                    <a href="https://github.com/user-attachments/assets/5acbb953-dfd2-4f62-a566-0aee957c9afb" class="proj-link">[demo]</a>
+                                </div>
+                            </div>
+
+                            <div class="project-entry">
+                                <div class="proj-header">
+                                    <a
+                                        href="https://github.com/lilcosine-small-projects/tictactoe-minimax"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="proj-name"
+                                    >
+                                        <span class="hl-dim">drwxr-xr-x</span>
+                                        <span
+                                            class="hl-amber"
+                                            style="margin: 0 0.75rem"
+                                            >Python&nbsp;&nbsp;&nbsp;&nbsp;</span
+                                        >
+                                        tictactoe-minimax<span class="hl-dim">/</span>
+                                    </a>
+                                </div>
+                                <p class="proj-desc">
+                                    A Tic-Tac-Toe game and an AI opponent powered by an exhaustive Minimax search. A branch also contain a neural net trained against the minimax search.
+                                </p>
+                                <div class="proj-links">
+                                    <a href="https://github.com/lilcosine-small-projects/tictactoe-minimax" class="proj-link">[github]</a>
+                                </div>
+                            </div>
+
+                            <div class="project-entry">
+                                <div class="proj-header">
+                                    <a
+                                        href="https://github.com/lil-cosine/CalculateTripCost"
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="proj-name"
+                                    >
+                                        <span class="hl-dim">drwxr-xr-x</span>
+                                        <span
+                                            class="hl-amber"
+                                            style="margin: 0 0.75rem"
+                                            >JavaScript/Python&nbsp;&nbsp;</span
+                                        >
+                                        CalculateTripCost<span class="hl-dim">/</span>
+                                    </a>
+                                </div>
+                                <p class="proj-desc">
+                                    A full-stack web application for tracking and analyzing driving expenses using gas price data sourced from the U.S. EIA.
+                                </p>
+                                <div class="proj-links">
+                                    <a href="https://github.com/lil-cosine/CalculateTripCost" class="proj-link">[github]</a>
+                                </div>
+                            </div>
+
+                            <p
+                                style="
+                                    margin-top: 0.75rem;
+                                    font-size: 14px;
+                                    color: var(--dim);
+                                "
+                            >
+                                →
+                                <a
+                                    href="https://github.com/lil-cosine"
+                                    style="
+                                        color: var(--green);
+                                        text-decoration: none;
+                                    "
+                                    target="_blank"
+                                    rel="noopener"
+                                    >github.com/lil-cosine</a
+                                >
+                                for more
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Vim-style statusline footer -->
+        <footer class="statusline">
+            <div class="container">
+                <div class="statusline-inner">
+                    <div class="sl-left">
+                        <span class="sl-item accent">NORMAL</span>
+                        <span
+                            class="sl-item hl-green"
+                            style="border-right: 1px solid var(--border)"
+                            >baeden.github.io</span
+                        >
+                    </div>
+                    <div class="sl-right">
+                        <span class="sl-item amber">About</span>
+                        <span class="sl-item">UTF-8</span>
+                        <span class="sl-item" id="sl-time"></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Live clock
+            function tick() {
+                const t = new Date().toLocaleTimeString("en-US", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: false,
+                });
+                const el = document.getElementById("sl-time");
+                if (el) el.textContent = t;
+            }
+            tick();
+            setInterval(tick, 1000);
+
+            // Scroll reveal
+            const obs = new IntersectionObserver(
+                (entries) =>
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) {
+                            e.target.classList.add("visible");
+                            obs.unobserve(e.target);
+                        }
+                    }),
+                { threshold: 0.06, rootMargin: "0px 0px -30px 0px" },
+            );
+            document
+                .querySelectorAll(".reveal")
+                .forEach((el) => obs.observe(el));
+
+            // Close mobile nav on link click
+            document
+                .querySelectorAll(".topbar-nav a")
+                .forEach((a) =>
+                    a.addEventListener("click", () =>
+                        document
+                            .querySelector(".topbar-nav")
+                            .classList.remove("open"),
+                    ),
+                );
+        </script>
+    </body>
+</html>
