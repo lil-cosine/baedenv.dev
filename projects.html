@@ -1,649 +1,614 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Baeden Vester — Projects</title>
-        <meta name="description" content="Projects by Baeden Vester" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baeden Vester — Projects</title>
+    <meta name="description" content="Projects by Baeden Vester" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap"
-            rel="stylesheet"
-        />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-        <style>
-            :root {
-                --bg: #0c0c0a;
-                --bg2: #111110;
-                --scan: rgba(255, 255, 255, 0.018);
-                --border: #333328;
-                --muted: #4a4a3e;
-                --dim: #7a7a64;
-                --body: #c8c8aa;
-                --bright: #e8e8cc;
-                --green: #8db870;
-                --green2: #b8d890;
-                --amber: #d4a850;
-                --red: #c8604c;
-                --font: "JetBrains Mono", "Fira Code", "Courier New", monospace;
-                --max-w: 1100px;
-            }
+    <style>
+      :root {
+        --bg: #0c0c0a;
+        --bg2: #111110;
+        --scan: rgba(255, 255, 255, 0.018);
+        --border: #333328;
+        --muted: #4a4a3e;
+        --dim: #7a7a64;
+        --body: #c8c8aa;
+        --bright: #e8e8cc;
+        --green: #8db870;
+        --green2: #b8d890;
+        --amber: #d4a850;
+        --red: #c8604c;
+        --font: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+        --max-w: 1100px;
+      }
 
-            *,
-            *::before,
-            *::after {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-            html {
-                scroll-behavior: smooth;
-            }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
 
-            body {
-                background: var(--bg);
-                color: var(--body);
-                font-family: var(--font);
-                font-size: 16px;
-                line-height: 1.65;
-                -webkit-font-smoothing: antialiased;
-                background-image: repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 2px,
-                    var(--scan) 2px,
-                    var(--scan) 4px
-                );
-                min-height: 100vh;
-            }
+      body {
+        background: var(--bg);
+        color: var(--body);
+        font-family: var(--font);
+        font-size: 16px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        background-image: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          var(--scan) 2px,
+          var(--scan) 4px
+        );
+        min-height: 100vh;
+      }
 
-            body::before {
-                content: "";
-                position: fixed;
-                inset: 0;
-                background: radial-gradient(
-                    ellipse at center,
-                    transparent 60%,
-                    rgba(0, 0, 0, 0.55) 100%
-                );
-                pointer-events: none;
-                z-index: 1000;
-            }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at center,
+          transparent 60%,
+          rgba(0, 0, 0, 0.55) 100%
+        );
+        pointer-events: none;
+        z-index: 1000;
+      }
 
-            ::selection {
-                background: var(--green);
-                color: var(--bg);
-            }
-            ::-webkit-scrollbar {
-                width: 4px;
-            }
-            ::-webkit-scrollbar-track {
-                background: var(--bg);
-            }
-            ::-webkit-scrollbar-thumb {
-                background: var(--muted);
-            }
+      ::selection {
+        background: var(--green);
+        color: var(--bg);
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--muted);
+      }
 
-            .container {
-                max-width: var(--max-w);
-                margin: 0 auto;
-                padding: 0 clamp(1.5rem, 5vw, 4rem);
-            }
+      .container {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 5vw, 4rem);
+      }
 
-            /* ── Topbar ─────────────────────────────────────── */
-            .topbar {
-                border-bottom: 1px solid var(--border);
-                background: var(--bg2);
-                position: sticky;
-                top: 0;
-                z-index: 100;
-            }
+      /* ── Topbar ─────────────────────────────────────── */
+      .topbar {
+        border-bottom: 1px solid var(--border);
+        background: var(--bg2);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
 
-            .topbar-inner {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                height: 44px;
-            }
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 44px;
+      }
 
-            .topbar-left {
-                display: flex;
-                align-items: center;
-                font-size: 18px;
-                color: var(--dim);
-            }
+      .topbar-left {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        color: var(--dim);
+      }
 
-            .topbar-path {
-                color: var(--green);
-            }
+      .topbar-path {
+        color: var(--green);
+      }
 
-            .topbar-cursor {
-                display: inline-block;
-                width: 8px;
-                height: 14px;
-                background: var(--green);
-                vertical-align: middle;
-                margin-left: 2px;
-                animation: blink 1.1s step-end infinite;
-            }
+      .topbar-cursor {
+        display: inline-block;
+        width: 8px;
+        height: 14px;
+        background: var(--green);
+        vertical-align: middle;
+        margin-left: 2px;
+        animation: blink 1.1s step-end infinite;
+      }
 
-            .topbar-nav {
-                display: flex;
-                align-items: center;
-                list-style: none;
-            }
+      .topbar-nav {
+        display: flex;
+        align-items: center;
+        list-style: none;
+      }
 
-            .topbar-nav a {
-                display: block;
-                padding: 0 0.9rem;
-                height: 44px;
-                line-height: 44px;
-                font-size: 18px;
-                color: var(--dim);
-                text-decoration: none;
-                border-left: 1px solid var(--border);
-                transition:
-                    color 0.15s,
-                    background 0.15s;
-                white-space: nowrap;
-                font-family: var(--font);
-            }
+      .topbar-nav a {
+        display: block;
+        padding: 0 0.9rem;
+        height: 44px;
+        line-height: 44px;
+        font-size: 18px;
+        color: var(--dim);
+        text-decoration: none;
+        border-left: 1px solid var(--border);
+        transition:
+          color 0.15s,
+          background 0.15s;
+        white-space: nowrap;
+        font-family: var(--font);
+      }
 
-            .topbar-nav a:hover,
-            .topbar-nav a.active {
-                color: var(--green);
-                background: rgba(141, 184, 112, 0.06);
-            }
+      .topbar-nav a:hover,
+      .topbar-nav a.active {
+        color: var(--green);
+        background: rgba(141, 184, 112, 0.06);
+      }
 
-            .nav-toggle {
-                display: none;
-                background: none;
-                border: none;
-                color: var(--dim);
-                cursor: pointer;
-                font-family: var(--font);
-                font-size: 18px;
-                padding: 0 0.75rem;
-                height: 44px;
-                border-left: 1px solid var(--border);
-            }
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--dim);
+        cursor: pointer;
+        font-family: var(--font);
+        font-size: 18px;
+        padding: 0 0.75rem;
+        height: 44px;
+        border-left: 1px solid var(--border);
+      }
 
-            .nav-toggle:hover {
-                color: var(--green);
-            }
+      .nav-toggle:hover {
+        color: var(--green);
+      }
 
-            @media (max-width: 560px) {
-                .nav-toggle {
-                    display: block;
-                }
-                .topbar-nav {
-                    display: none;
-                    position: absolute;
-                    top: 44px;
-                    left: 0;
-                    right: 0;
-                    flex-direction: column;
-                    background: var(--bg2);
-                    border-bottom: 1px solid var(--border);
-                    z-index: 99;
-                }
-                .topbar-nav.open {
-                    display: flex;
-                }
-                .topbar-nav a {
-                    border-left: none;
-                    border-bottom: 1px solid var(--border);
-                    padding: 0 1.25rem;
-                }
-            }
+      @media (max-width: 560px) {
+        .nav-toggle {
+          display: block;
+        }
+        .topbar-nav {
+          display: none;
+          position: absolute;
+          top: 44px;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          background: var(--bg2);
+          border-bottom: 1px solid var(--border);
+          z-index: 99;
+        }
+        .topbar-nav.open {
+          display: flex;
+        }
+        .topbar-nav a {
+          border-left: none;
+          border-bottom: 1px solid var(--border);
+          padding: 0 1.25rem;
+        }
+      }
 
-            /* ── Page ────────────────────────────────────────── */
-            .page {
-                padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(1.5rem, 4vw, 2.5rem);
-            }
+      /* ── Page ────────────────────────────────────────── */
+      .page {
+        padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+      }
 
-            .cli-prompt {
-                display: flex;
-                align-items: baseline;
-                gap: 0.5rem;
-                margin-bottom: 0.75rem;
-                flex-wrap: wrap;
-            }
+      .cli-prompt {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+        flex-wrap: wrap;
+      }
 
-            .ps1 {
-                color: var(--green);
-                white-space: nowrap;
-                font-size: 18px;
-            }
-            .ps1-host {
-                color: var(--amber);
-            }
-            .ps1-path {
-                color: var(--green2);
-            }
-            .ps1-dollar {
-                color: var(--bright);
-            }
-            .cmd {
-                color: var(--bright);
-                font-size: 18px;
-            }
-            .cmd-arg {
-                color: var(--amber);
-            }
-            .cmd-comment {
-                color: var(--muted);
-                font-style: italic;
-                font-size: 18px;
-            }
-            .comment {
-                color: var(--muted);
-                font-style: italic;
-                font-size: 14px;
-            }
+      .ps1 {
+        color: var(--green);
+        white-space: nowrap;
+        font-size: 18px;
+      }
+      .ps1-host {
+        color: var(--amber);
+      }
+      .ps1-path {
+        color: var(--green2);
+      }
+      .ps1-dollar {
+        color: var(--bright);
+      }
+      .cmd {
+        color: var(--bright);
+        font-size: 18px;
+      }
+      .cmd-arg {
+        color: var(--amber);
+      }
+      .cmd-comment {
+        color: var(--muted);
+        font-style: italic;
+        font-size: 18px;
+      }
+      .comment {
+        color: var(--muted);
+        font-style: italic;
+        font-size: 14px;
+      }
 
-            .cli-output {
-                border-left: 2px solid var(--muted);
-                padding-left: 1.25rem;
-                margin-left: 0.15rem;
-                margin-bottom: 2rem;
-            }
+      .cli-output {
+        border-left: 2px solid var(--muted);
+        padding-left: 1.25rem;
+        margin-left: 0.15rem;
+        margin-bottom: 2rem;
+      }
 
-            /* ── Filter tabs ─────────────────────────────────── */
-            .filter-row {
-                display: flex;
-                gap: 0.4rem;
-                flex-wrap: wrap;
-                margin-bottom: 1.25rem;
-                font-size: 13px;
-            }
+      /* ── Filter tabs ─────────────────────────────────── */
+      .filter-row {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.25rem;
+        font-size: 13px;
+      }
 
-            .filter-btn {
-                padding: 0.2rem 0.6rem;
-                border: 1px solid var(--border);
-                border-radius: 2px;
-                background: none;
-                color: var(--dim);
-                font-family: var(--font);
-                font-size: 13px;
-                cursor: pointer;
-                letter-spacing: 0.04em;
-                transition: all 0.15s;
-            }
+      .filter-btn {
+        padding: 0.2rem 0.6rem;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        background: none;
+        color: var(--dim);
+        font-family: var(--font);
+        font-size: 13px;
+        cursor: pointer;
+        letter-spacing: 0.04em;
+        transition: all 0.15s;
+      }
 
-            .filter-btn:hover {
-                border-color: var(--green);
-                color: var(--green);
-            }
-            .filter-btn.active {
-                border-color: var(--amber);
-                color: var(--amber);
-                background: rgba(212, 168, 80, 0.06);
-            }
+      .filter-btn:hover {
+        border-color: var(--green);
+        color: var(--green);
+      }
+      .filter-btn.active {
+        border-color: var(--amber);
+        color: var(--amber);
+        background: rgba(212, 168, 80, 0.06);
+      }
 
-            /* ── Project cards ───────────────────────────────── */
-            .project-list {
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-            }
+      /* ── Project cards ───────────────────────────────── */
+      .project-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
 
-            .project-entry {
-                padding: 1.75rem 0;
-                border-bottom: 1px solid var(--border);
-            }
+      .project-entry {
+        padding: 1.75rem 0;
+        border-bottom: 1px solid var(--border);
+      }
 
-            .project-entry:first-child {
-                border-top: 1px solid var(--border);
-            }
-            .project-entry[hidden] {
-                display: none;
-            }
+      .project-entry:first-child {
+        border-top: 1px solid var(--border);
+      }
+      .project-entry[hidden] {
+        display: none;
+      }
 
-            .proj-header {
-                display: flex;
-                align-items: baseline;
-                justify-content: space-between;
-                gap: 1rem;
-                flex-wrap: wrap;
-                margin-bottom: 0.4rem;
-            }
+      .proj-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.4rem;
+      }
 
-            .proj-name {
-                font-size: 15px;
-                font-weight: 500;
-                color: var(--green2);
-                text-decoration: none;
-                transition: color 0.15s;
-            }
+      .proj-name {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--green2);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
 
-            .proj-name::before {
-                content: "> ";
-                color: var(--dim);
-            }
-            .proj-name:hover {
-                color: var(--green);
-            }
+      .proj-name::before {
+        content: "> ";
+        color: var(--dim);
+      }
+      .proj-name:hover {
+        color: var(--green);
+      }
 
-            .proj-lang {
-                font-size: 13px;
-                color: var(--amber);
-                white-space: nowrap;
-            }
+      .proj-lang {
+        font-size: 13px;
+        color: var(--amber);
+        white-space: nowrap;
+      }
 
-            .proj-desc {
-                font-size: 14.5px;
-                color: var(--body);
-                line-height: 1.7;
-                margin-bottom: 0.6rem;
-                max-width: 600px;
-            }
+      .proj-desc {
+        font-size: 14.5px;
+        color: var(--body);
+        line-height: 1.7;
+        margin-bottom: 0.6rem;
+      }
 
-            .proj-footer {
-                display: flex;
-                align-items: center;
-                gap: 1.25rem;
-                flex-wrap: wrap;
-            }
+      .proj-footer {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
 
-            .proj-links {
-                display: flex;
-                gap: 0.85rem;
-            }
+      .proj-links {
+        display: flex;
+        gap: 0.85rem;
+      }
 
-            .proj-link {
-                font-size: 13px;
-                color: var(--dim);
-                text-decoration: none;
-                letter-spacing: 0.04em;
-                transition: color 0.15s;
-            }
+      .proj-link {
+        font-size: 13px;
+        color: var(--dim);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.15s;
+      }
 
-            .proj-link:hover {
-                color: var(--green);
-            }
+      .proj-link:hover {
+        color: var(--green);
+      }
 
-            .proj-status {
-                font-size: 12px;
-                padding: 0.15rem 0.45rem;
-                border: 1px solid var(--border);
-                border-radius: 2px;
-                letter-spacing: 0.05em;
-            }
+      .proj-status {
+        font-size: 12px;
+        padding: 0.15rem 0.45rem;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        letter-spacing: 0.05em;
+      }
 
-            .proj-status.active {
-                border-color: var(--green);
-                color: var(--green);
-            }
-            .proj-status.wip {
-                border-color: var(--amber);
-                color: var(--amber);
-            }
-            .proj-status.hold {
-                border-color: var(--red);
-                color: var(--red);
-            }
-            .proj-status.planning {
-                border-color: var(--amber);
-                color: var(--amber);
-            }
-            .proj-status.done {
-                border-color: var(--muted);
-                color: var(--dim);
-            }
+      .proj-status.active {
+        border-color: var(--green);
+        color: var(--green);
+      }
+      .proj-status.wip {
+        border-color: var(--amber);
+        color: var(--amber);
+      }
+      .proj-status.hold {
+        border-color: var(--red);
+        color: var(--red);
+      }
+      .proj-status.planning {
+        border-color: var(--amber);
+        color: var(--amber);
+      }
+      .proj-status.done {
+        border-color: var(--muted);
+        color: var(--dim);
+      }
 
-            /* ── Trailing prompt ─────────────────────────────── */
-            .trail-prompt {
-                display: flex;
-                align-items: baseline;
-                gap: 0.5rem;
-                margin-top: 0.5rem;
-            }
+      /* ── Trailing prompt ─────────────────────────────── */
+      .trail-prompt {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
 
-            .type-cursor::after {
-                content: "▋";
-                color: var(--green);
-                animation: blink 1.1s step-end infinite;
-                margin-left: 2px;
-            }
+      .type-cursor::after {
+        content: "▋";
+        color: var(--green);
+        animation: blink 1.1s step-end infinite;
+        margin-left: 2px;
+      }
 
-            /* ── Statusline ──────────────────────────────────── */
-            .statusline {
-                border-top: 1px solid var(--border);
-                background: var(--bg2);
-                position: sticky;
-                bottom: 0;
-            }
+      /* ── Statusline ──────────────────────────────────── */
+      .statusline {
+        border-top: 1px solid var(--border);
+        background: var(--bg2);
+        position: sticky;
+        bottom: 0;
+      }
 
-            .statusline-inner {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                height: 26px;
-                font-size: 13px;
-                overflow: hidden;
-            }
+      .statusline-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 26px;
+        font-size: 13px;
+        overflow: hidden;
+      }
 
-            .sl-left,
-            .sl-right {
-                display: flex;
-                align-items: center;
-            }
+      .sl-left,
+      .sl-right {
+        display: flex;
+        align-items: center;
+      }
 
-            .sl-item {
-                padding: 0 0.65rem;
-                height: 26px;
-                line-height: 26px;
-                border-right: 1px solid var(--border);
-                color: var(--dim);
-                white-space: nowrap;
-            }
+      .sl-item {
+        padding: 0 0.65rem;
+        height: 26px;
+        line-height: 26px;
+        border-right: 1px solid var(--border);
+        color: var(--dim);
+        white-space: nowrap;
+      }
 
-            .sl-item:first-child {
-                border-left: 1px solid var(--border);
-            }
-            .sl-item.accent {
-                background: var(--green);
-                color: var(--bg);
-                font-weight: 500;
-                border-color: var(--green);
-            }
-            .sl-item.amber {
-                color: var(--amber);
-            }
+      .sl-item:first-child {
+        border-left: 1px solid var(--border);
+      }
+      .sl-item.accent {
+        background: var(--green);
+        color: var(--bg);
+        font-weight: 500;
+        border-color: var(--green);
+      }
+      .sl-item.amber {
+        color: var(--amber);
+      }
 
-            @keyframes blink {
-                0%,
-                100% {
-                    opacity: 1;
-                }
-                50% {
-                    opacity: 0;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <nav class="topbar">
-            <div class="container">
-                <div class="topbar-inner">
-                    <div class="topbar-left">
-                        <span style="color: var(--dim)">~/</span
-                        ><span class="topbar-path"
-                            ><a href="index.html" class="topbar-path"
-                                >baeden-vester/projects</a
-                            ></span
-                        >
-                        <span class="topbar-cursor"></span>
-                    </div>
-                    <button
-                        class="nav-toggle"
-                        onclick="
-                            document
-                                .querySelector('.topbar-nav')
-                                .classList.toggle('open')
-                        "
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="topbar">
+      <div class="container">
+        <div class="topbar-inner">
+          <div class="topbar-left">
+            <span style="color: var(--dim)">~/</span
+            ><span class="topbar-path"
+              ><a href="index.html" class="topbar-path"
+                >baeden-vester/projects</a
+              ></span
+            >
+            <span class="topbar-cursor"></span>
+          </div>
+          <button
+            class="nav-toggle"
+            onclick="
+              document.querySelector('.topbar-nav').classList.toggle('open')
+            "
+          >
+            [menu]
+          </button>
+          <ul class="topbar-nav">
+            <li><a href="index.html">about</a></li>
+            <!--<li><a href="blog.html">blog</a></li>-->
+            <li>
+              <a href="projects.html" class="active">projects</a>
+            </li>
+            <!--<li><a href="resume.pdf">resume.pdf</a></li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="container">
+        <div class="page">
+          <div class="cli-prompt">
+            <span class="ps1"
+              ><span class="ps1-host">baeden</span
+              ><span style="color: var(--dim)">@</span
+              ><span class="ps1-host">site</span
+              ><span style="color: var(--dim)">:</span
+              ><span class="ps1-path">~/projects</span
+              ><span class="ps1-dollar"> $</span></span
+            >
+            <span class="cmd"
+              >find <span class="cmd-arg">.</span> -maxdepth 1 -type d
+              <span class="cmd-comment">| sort -r</span></span
+            >
+          </div>
+
+          <div class="cli-output">
+            <p style="font-size: 13px; color: var(--dim); margin-bottom: 1rem">
+              total 6 directories &nbsp;<span class="comment"
+                ># filter by tag below</span
+              >
+            </p>
+
+            <!-- Filter buttons -->
+            <div class="filter-row">
+              <button class="filter-btn active" data-filter="all">all</button>
+              <button class="filter-btn" data-filter="AI/ML">AI/ML</button>
+              <button class="filter-btn" data-filter="robotics">
+                Robotics
+              </button>
+              <button class="filter-btn" data-filter="rust">Rust</button>
+              <button class="filter-btn" data-filter="webdev">Web Dev</button>
+            </div>
+
+            <div class="project-list">
+              <div class="project-entry" data-tags="robotics">
+                <div class="proj-header">
+                  <a
+                    href="https://github.com/lil-cosine/Multi-Drone-Control"
+                    target="_blank"
+                    rel="noopener"
+                    class="proj-name"
+                    >Multi-Drone_Control</a
+                  >
+                  <span class="proj-lang">Python</span>
+                </div>
+                <p class="proj-desc">
+                  A template for programatic control of multiple drones through
+                  Isaac Sim. It supports both drone control through Mavlink
+                  commands over PX4 and QGroundControl as well as direct
+                  commands to the individual motors. This project also supports
+                  the addition of other robots controlled by policies trained
+                  through Isaac Lab.
+                </p>
+                <div class="proj-footer">
+                  <div class="proj-links">
+                    <a
+                      href="https://github.com/lil-cosine/Multi-Drone-Control"
+                      class="proj-link"
+                      >[github]</a
                     >
-                        [menu]
-                    </button>
-                    <ul class="topbar-nav">
-                        <li><a href="index.html">about</a></li>
-                        <!--<li><a href="blog.html">blog</a></li>-->
-                        <li>
-                            <a href="projects.html" class="active">projects</a>
-                        </li>
-                        <!--<li><a href="resume.pdf">resume.pdf</a></li>-->
-                    </ul>
+                    <a
+                      href="https://github.com/user-attachments/assets/5acbb953-dfd2-4f62-a566-0aee957c9afb"
+                      class="proj-link"
+                      >[demo]</a
+                    >
+                  </div>
+                  <span class="proj-status active">active</span>
                 </div>
-            </div>
-        </nav>
+              </div>
 
-        <main>
-            <div class="container">
-                <div class="page">
-                    <div class="cli-prompt">
-                        <span class="ps1"
-                            ><span class="ps1-host">baeden</span
-                            ><span style="color: var(--dim)">@</span
-                            ><span class="ps1-host">site</span
-                            ><span style="color: var(--dim)">:</span
-                            ><span class="ps1-path">~/projects</span
-                            ><span class="ps1-dollar"> $</span></span
-                        >
-                        <span class="cmd"
-                            >find <span class="cmd-arg">.</span> -maxdepth 1
-                            -type d
-                            <span class="cmd-comment">| sort -r</span></span
-                        >
-                    </div>
-
-                    <div class="cli-output">
-                        <p
-                            style="
-                                font-size: 13px;
-                                color: var(--dim);
-                                margin-bottom: 1rem;
-                            "
-                        >
-                            total 6 directories &nbsp;<span class="comment"
-                                ># filter by tag below</span
-                            >
-                        </p>
-
-                        <!-- Filter buttons -->
-                        <div class="filter-row">
-                            <button class="filter-btn active" data-filter="all">
-                                all
-                            </button>
-                            <button class="filter-btn" data-filter="AI/ML">
-                                AI/ML
-                            </button>
-                            <button class="filter-btn" data-filter="robotics">
-                                Robotics
-                            </button>
-                            <button class="filter-btn" data-filter="rust">
-                                Rust
-                            </button>
-                            <button class="filter-btn" data-filter="webdev">
-                                Web Dev
-                            </button>
-                        </div>
-
-                        <div class="project-list">
-                            <div class="project-entry" data-tags="robotics">
-                                <div class="proj-header">
-                                    <a
-                                        href="https://github.com/lil-cosine/Multi-Drone-Control"
-                                        target="_blank"
-                                        rel="noopener"
-                                        class="proj-name"
-                                        >Multi-Drone_Control</a
-                                    >
-                                    <span class="proj-lang">Python</span>
-                                </div>
-                                <p class="proj-desc">
-                                    A template for programatic control of
-                                    multiple drones through Isaac Sim. It
-                                    supports both drone control through Mavlink
-                                    commands over PX4 and QGroundControl as well
-                                    as direct commands to the individual motors.
-                                    This project also supports the addition of
-                                    other robots controlled by policies trained
-                                    through Isaac Lab.
-                                </p>
-                                <div class="proj-footer">
-                                    <div class="proj-links">
-                                        <a
-                                            href="https://github.com/lil-cosine/Multi-Drone-Control"
-                                            class="proj-link"
-                                            >[github]</a
-                                        >
-                                        <a
-                                            href="https://github.com/user-attachments/assets/5acbb953-dfd2-4f62-a566-0aee957c9afb"
-                                            class="proj-link"
-                                            >[demo]</a
-                                        >
-                                    </div>
-                                    <span class="proj-status active"
-                                        >active</span
-                                    >
-                                </div>
-                            </div>
-
-                            <div class="project-entry" data-tags="AI/ML">
-                                <div class="proj-header">
-                                    <a
-                                        href="#"
-                                        target="_blank"
-                                        rel="noopener"
-                                        class="proj-name"
-                                        >connect-four-rl</a
-                                    >
-                                    <span class="proj-lang">Python</span>
-                                </div>
-                                <p class="proj-desc">
-                                    An AI model trained using Reinforcement
-                                    Learning in order to skillfully play Connect
-                                    Four against a human opponent.
-                                </p>
-                                <div class="proj-footer">
-                                    <div class="proj-links">
-                                        <!--<a
+              <div class="project-entry" data-tags="AI/ML">
+                <div class="proj-header">
+                  <a href="#" target="_blank" rel="noopener" class="proj-name"
+                    >connect-four-rl</a
+                  >
+                  <span class="proj-lang">Python</span>
+                </div>
+                <p class="proj-desc">
+                  An AI model trained using Reinforcement Learning in order to
+                  skillfully play Connect Four against a human opponent.
+                </p>
+                <div class="proj-footer">
+                  <div class="proj-links">
+                    <!--<a
                                             href="https://github.com/lilcosine-small-projects/tictactoe-minimax"
                                             class="proj-link"
                                             >[github]</a
                                         >-->
-                                    </div>
-                                    <span class="proj-status active"
-                                        >active</span
-                                    >
-                                </div>
-                            </div>
+                  </div>
+                  <span class="proj-status active">active</span>
+                </div>
+              </div>
 
-                            <div class="project-entry" data-tags="robotics">
-                                <div class="proj-header">
-                                    <a
-                                        href="#"
-                                        target="_blank"
-                                        rel="noopener"
-                                        class="proj-name"
-                                        >Rubiks-RL</a
-                                    >
-                                    <span class="proj-lang">C++/OpenGL</span>
-                                </div>
-                                <p class="proj-desc">
-                                    An AI model trained to solve a Rubik's Cube
-                                    in a reasonable amount of steps. The
-                                    solution will be viewable in an OpenGL
-                                    rendered viewport. The final result will be
-                                    deployed on a robot which will solve the
-                                    cube.
-                                </p>
-                                <div class="proj-footer">
-                                    <div class="proj-links">
-                                        <!--<a
+              <div class="project-entry" data-tags="robotics">
+                <div class="proj-header">
+                  <a href="#" target="_blank" rel="noopener" class="proj-name"
+                    >Rubiks-RL</a
+                  >
+                  <span class="proj-lang">C++/OpenGL</span>
+                </div>
+                <p class="proj-desc">
+                  An AI model trained to solve a Rubik's Cube in a reasonable
+                  amount of steps. The solution will be viewable in an OpenGL
+                  rendered viewport. The final result will be deployed on a
+                  robot which will solve the cube.
+                </p>
+                <div class="proj-footer">
+                  <div class="proj-links">
+                    <!--<a
                                             href="https://github.com/lil-cosine/Multi-Drone-Control"
                                             class="proj-link"
                                             >[github]</a
@@ -653,195 +618,173 @@
                                             class="proj-link"
                                             >[demo]</a
                                         >-->
-                                    </div>
-                                    <span class="proj-status planning"
-                                        >in planning</span
-                                    >
-                                </div>
-                            </div>
+                  </div>
+                  <span class="proj-status planning">in planning</span>
+                </div>
+              </div>
 
-                            <div class="project-entry" data-tags="webdev">
-                                <div class="proj-header">
-                                    <a
-                                        href="https://github.com/lil-cosine/CalculateTripCost"
-                                        target="_blank"
-                                        rel="noopener"
-                                        class="proj-name"
-                                        >CalculateTripCost</a
-                                    >
-                                    <span class="proj-lang"
-                                        >JavaScript/Python</span
-                                    >
-                                </div>
-                                <p class="proj-desc">
-                                    A full-stack web application for tracking
-                                    and analyzing driving expenses using gas
-                                    price data sourced from the U.S. EIA.
-                                </p>
-                                <div class="proj-footer">
-                                    <div class="proj-links">
-                                        <a
-                                            href="https://github.com/lil-cosine/CalculateTripCost"
-                                            class="proj-link"
-                                            >[github]</a
-                                        >
-                                    </div>
-                                    <span class="proj-status hold"
-                                        >on hold</span
-                                    >
-                                </div>
-                            </div>
+              <div class="project-entry" data-tags="webdev">
+                <div class="proj-header">
+                  <a
+                    href="https://github.com/lil-cosine/CalculateTripCost"
+                    target="_blank"
+                    rel="noopener"
+                    class="proj-name"
+                    >CalculateTripCost</a
+                  >
+                  <span class="proj-lang">JavaScript/Python</span>
+                </div>
+                <p class="proj-desc">
+                  A full-stack web application for tracking and analyzing
+                  driving expenses using gas price data sourced from the U.S.
+                  EIA.
+                </p>
+                <div class="proj-footer">
+                  <div class="proj-links">
+                    <a
+                      href="https://github.com/lil-cosine/CalculateTripCost"
+                      class="proj-link"
+                      >[github]</a
+                    >
+                  </div>
+                  <span class="proj-status hold">on hold</span>
+                </div>
+              </div>
 
-                            <div class="project-entry" data-tags="rust">
-                                <div class="proj-header">
-                                    <a
-                                        href="#"
-                                        target="_blank"
-                                        rel="noopener"
-                                        class="proj-name"
-                                        >Connection_Manager</a
-                                    >
-                                    <span class="proj-lang">Rust</span>
-                                </div>
-                                <p class="proj-desc">
-                                    A Rust GUI wrapper for Bluetooth and network
-                                    management CLI commands.
-                                </p>
-                                <div class="proj-footer">
-                                    <div class="proj-links">
-                                        <!--<a href="#" class="proj-link"
+              <div class="project-entry" data-tags="rust">
+                <div class="proj-header">
+                  <a href="#" target="_blank" rel="noopener" class="proj-name"
+                    >Connection_Manager</a
+                  >
+                  <span class="proj-lang">Rust</span>
+                </div>
+                <p class="proj-desc">
+                  A Rust GUI wrapper for Bluetooth and network management CLI
+                  commands.
+                </p>
+                <div class="proj-footer">
+                  <div class="proj-links">
+                    <!--<a href="#" class="proj-link"
                                             >[github]</a
                                         >-->
-                                    </div>
-                                    <span class="proj-status hold"
-                                        >on hold</span
-                                    >
-                                </div>
-                            </div>
-
-                            <div class="project-entry" data-tags="AI/ML">
-                                <div class="proj-header">
-                                    <a
-                                        href="https://github.com/lilcosine-small-projects/tictactoe-minimax"
-                                        target="_blank"
-                                        rel="noopener"
-                                        class="proj-name"
-                                        >tictactoe-minimax</a
-                                    >
-                                    <span class="proj-lang">Python</span>
-                                </div>
-                                <p class="proj-desc">
-                                    A Tic-Tac-Toe game and an AI opponent
-                                    powered by an exhaustive Minimax search. A
-                                    branch also contain a neural net trained
-                                    against the minimax search.
-                                </p>
-                                <div class="proj-footer">
-                                    <div class="proj-links">
-                                        <a
-                                            href="https://github.com/lilcosine-small-projects/tictactoe-minimax"
-                                            class="proj-link"
-                                            >[github]</a
-                                        >
-                                    </div>
-                                    <span class="proj-status done">done</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="trail-prompt">
-                        <span class="ps1"
-                            ><span class="ps1-host">baeden</span
-                            ><span style="color: var(--dim)">@</span
-                            ><span class="ps1-host">site</span
-                            ><span style="color: var(--dim)">:</span
-                            ><span class="ps1-path">~/projects</span
-                            ><span class="ps1-dollar"> $</span></span
-                        >
-                        <span class="cmd type-cursor"></span>
-                    </div>
+                  </div>
+                  <span class="proj-status hold">on hold</span>
                 </div>
-            </div>
-        </main>
+              </div>
 
-        <footer class="statusline">
-            <div class="container">
-                <div class="statusline-inner">
-                    <div class="sl-left">
-                        <span class="sl-item accent">NORMAL</span>
-                        <span
-                            class="sl-item"
-                            style="
-                                color: var(--green);
-                                border-right: 1px solid var(--border);
-                            "
-                            >baedenv.dev/projects</span
-                        >
-                    </div>
-                    <div class="sl-right">
-                        <span class="sl-item amber" id="sl-count"
-                            >6 projects</span
-                        >
-                        <span class="sl-item">UTF-8</span>
-                        <span class="sl-item" id="sl-time"></span>
-                    </div>
+              <div class="project-entry" data-tags="AI/ML">
+                <div class="proj-header">
+                  <a
+                    href="https://github.com/lilcosine-small-projects/tictactoe-minimax"
+                    target="_blank"
+                    rel="noopener"
+                    class="proj-name"
+                    >tictactoe-minimax</a
+                  >
+                  <span class="proj-lang">Python</span>
                 </div>
+                <p class="proj-desc">
+                  A Tic-Tac-Toe game and an AI opponent powered by an exhaustive
+                  Minimax search. A branch also contain a neural net trained
+                  against the minimax search.
+                </p>
+                <div class="proj-footer">
+                  <div class="proj-links">
+                    <a
+                      href="https://github.com/lilcosine-small-projects/tictactoe-minimax"
+                      class="proj-link"
+                      >[github]</a
+                    >
+                  </div>
+                  <span class="proj-status done">done</span>
+                </div>
+              </div>
             </div>
-        </footer>
+          </div>
 
-        <script>
-            // Clock
-            function tick() {
-                const t = new Date().toLocaleTimeString("en-US", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    second: "2-digit",
-                    hour12: false,
-                });
-                const el = document.getElementById("sl-time");
-                if (el) el.textContent = t;
-            }
-            tick();
-            setInterval(tick, 1000);
+          <div class="trail-prompt">
+            <span class="ps1"
+              ><span class="ps1-host">baeden</span
+              ><span style="color: var(--dim)">@</span
+              ><span class="ps1-host">site</span
+              ><span style="color: var(--dim)">:</span
+              ><span class="ps1-path">~/projects</span
+              ><span class="ps1-dollar"> $</span></span
+            >
+            <span class="cmd type-cursor"></span>
+          </div>
+        </div>
+      </div>
+    </main>
 
-            // Filter
-            const btns = document.querySelectorAll(".filter-btn");
-            const entries = document.querySelectorAll(".project-entry");
-            const countEl = document.getElementById("sl-count");
+    <footer class="statusline">
+      <div class="container">
+        <div class="statusline-inner">
+          <div class="sl-left">
+            <span class="sl-item accent">NORMAL</span>
+            <span
+              class="sl-item"
+              style="color: var(--green); border-right: 1px solid var(--border)"
+              >baedenv.dev/projects</span
+            >
+          </div>
+          <div class="sl-right">
+            <span class="sl-item amber" id="sl-count">6 projects</span>
+            <span class="sl-item">UTF-8</span>
+            <span class="sl-item" id="sl-time"></span>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-            btns.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    btns.forEach((b) => b.classList.remove("active"));
-                    btn.classList.add("active");
+    <script>
+      // Clock
+      function tick() {
+        const t = new Date().toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        });
+        const el = document.getElementById("sl-time");
+        if (el) el.textContent = t;
+      }
+      tick();
+      setInterval(tick, 1000);
 
-                    const filter = btn.dataset.filter;
-                    let visible = 0;
+      // Filter
+      const btns = document.querySelectorAll(".filter-btn");
+      const entries = document.querySelectorAll(".project-entry");
+      const countEl = document.getElementById("sl-count");
 
-                    entries.forEach((entry) => {
-                        const tags = entry.dataset.tags || "";
-                        const show =
-                            filter === "all" ||
-                            tags.split(" ").includes(filter);
-                        entry.hidden = !show;
-                        if (show) visible++;
-                    });
+      btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
 
-                    if (countEl)
-                        countEl.textContent = `${visible} project${visible !== 1 ? "s" : ""}`;
-                });
-            });
+          const filter = btn.dataset.filter;
+          let visible = 0;
 
-            // Mobile nav
-            document
-                .querySelectorAll(".topbar-nav a")
-                .forEach((a) =>
-                    a.addEventListener("click", () =>
-                        document
-                            .querySelector(".topbar-nav")
-                            .classList.remove("open"),
-                    ),
-                );
-        </script>
-    </body>
+          entries.forEach((entry) => {
+            const tags = entry.dataset.tags || "";
+            const show = filter === "all" || tags.split(" ").includes(filter);
+            entry.hidden = !show;
+            if (show) visible++;
+          });
+
+          if (countEl)
+            countEl.textContent = `${visible} project${visible !== 1 ? "s" : ""}`;
+        });
+      });
+
+      // Mobile nav
+      document
+        .querySelectorAll(".topbar-nav a")
+        .forEach((a) =>
+          a.addEventListener("click", () =>
+            document.querySelector(".topbar-nav").classList.remove("open"),
+          ),
+        );
+    </script>
+  </body>
 </html>
